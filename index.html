@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Landing Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: #ff7b7b;
+            padding: 20px;
+        }
+
+        .nav-menu {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 40px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: black;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .menu-icon {
+            position: absolute;
+            right: 0;
+            cursor: pointer;
+        }
+
+        .menu-icon div {
+            width: 30px;
+            height: 4px;
+            background-color: black;
+            margin: 5px 0;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(to right, #ffffcc, #ffcccc, #ffccff);
+            padding: 60px 20px;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero-text h1 {
+            font-size: 50px;
+            margin-bottom: 30px;
+        }
+
+        .hero-text p {
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .hero-image {
+            flex: 1;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+        }
+
+        button {
+            background-color: #ff7b7b;
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            opacity: 0.9;
+        }
+
+        /* Cards Section */
+        .cards {
+            background: linear-gradient(to right, #ffffcc, #ffcccc, #ffccff);
+            padding: 60px 20px;
+        }
+
+        .cards-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .images-grid {
+            flex: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .images-grid img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .images-grid .big-image {
+            grid-column: 1 / 3;
+            height: 300px;
+        }
+
+        .info-box {
+            flex: 1;
+            background-color: #ff7b7b;
+            padding: 60px 40px;
+        }
+
+        .info-box p {
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .info-box h2 {
+            font-size: 45px;
+            margin-bottom: 10px;
+        }
+
+        .info-box h3 {
+            font-size: 40px;
+            margin-bottom: 40px;
+        }
+
+        .arrow-btn {
+            background: none;
+            color: black;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Mobile Menu */
+        nav ul.mobile-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background-color: #ff7b7b;
+            flex-direction: column;
+            gap: 0;
+            padding: 10px 0;
+        }
+
+        nav ul.mobile-menu.active {
+            display: flex;
+        }
+
+        nav ul.mobile-menu li {
+            padding: 15px;
+            text-align: center;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul:not(.mobile-menu) {
+                display: none;
+            }
+
+            nav ul.mobile-menu {
+                display: none;
+            }
+
+            nav ul.mobile-menu.active {
+                display: flex;
+            }
+
+            .hero-content {
+                flex-direction: column;
+            }
+
+            .hero-text h1 {
+                font-size: 35px;
+            }
+
+            .cards-content {
+                flex-direction: column;
+            }
+
+            .images-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .images-grid .big-image {
+                grid-column: 1;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-text h1 {
+                font-size: 28px;
+            }
+
+            .info-box h2 {
+                font-size: 32px;
+            }
+
+            .info-box h3 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-menu">
+            <ul id="mainMenu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#order">Order</a></li>
+                <li><a href="#food">Food</a></li>
+                <li><a href="#restaurant">Restaurant</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+            </ul>
+            <div class="menu-icon" onclick="toggleMenu()">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <ul id="mobileMenu" class="mobile-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#order">Order</a></li>
+                <li><a href="#food">Food</a></li>
+                <li><a href="#restaurant">Restaurant</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>LOREM IPSUM</h1>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus
+                    id est vitae dolor rhoncus tristique. Maecenas metus quam,
+                    rhoncus euismod lorem in, sollicitudin viverra eros. Donec
+                    dictum luctus quam ut tristique. Curabitur nec faucibus purus.
+                    Quisque congue sem nec justo mollis, in tincidunt erat pretium.
+                    Sed pulvinar, massa ac porta viverra.
+                </p>
+                <button>Click Me</button>
+            </div>
+            <div class="hero-image">
+                <img src="burger.jpg" alt="Burger">
+            </div>
+        </div>
+    </section>
+
+    <!-- Cards Section -->
+    <section class="cards">
+        <div class="cards-content">
+            <div class="images-grid">
+                <img src="sign.jpg" alt="Restaurant Sign">
+                <img src="food.jpg" alt="Food">
+                <img src="outdoor.jpg" alt="Outdoor" class="big-image">
+            </div>
+            <div class="info-box">
+                <p>LOREM IPSUM</p>
+                <h2>LOREM IPSUM</h2>
+                <h3>SET ADEMIR</h3>
+                <button class="arrow-btn">
+                    Click
+                    <span>→</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById('mobileMenu');
+            if (menu.classList.contains('active')) {
+                menu.classList.remove('active');
+            } else {
+                menu.classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html>
