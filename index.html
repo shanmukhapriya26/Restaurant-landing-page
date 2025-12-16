@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Restaurant Landing Page</title>
-    <!-- Creating a Frontend Assignment on Restaurant Landing page -->
-
+    /*creating a restaurant landing page */
     <style>
         * {
             margin: 0;
@@ -17,14 +16,13 @@
             font-family: Arial, sans-serif;
         }
 
-        /* Navigation */
         nav {
-            background-color: #ff7b7b;
-            padding: 20px;
+            background-color: #ff8080;
+            padding: 20px 40px;
         }
 
         .nav-menu {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             display: flex;
             justify-content: center;
@@ -35,13 +33,13 @@
         nav ul {
             list-style: none;
             display: flex;
-            gap: 40px;
+            gap: 50px;
         }
 
         nav a {
             text-decoration: none;
             color: black;
-            font-size: 18px;
+            font-size: 20px;
             font-weight: bold;
         }
 
@@ -52,23 +50,22 @@
         }
 
         .menu-icon div {
-            width: 30px;
+            width: 32px;
             height: 4px;
             background-color: black;
-            margin: 5px 0;
+            margin: 6px 0;
         }
 
-        /* Hero Section */
         .hero {
             background: linear-gradient(to right, #ffffcc, #ffcccc, #ffccff);
-            padding: 60px 20px;
+            padding: 80px 40px;
         }
 
         .hero-content {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             display: flex;
-            gap: 40px;
+            gap: 60px;
             align-items: center;
         }
 
@@ -77,14 +74,17 @@
         }
 
         .hero-text h1 {
-            font-size: 50px;
-            margin-bottom: 30px;
+            font-size: 60px;
+            font-weight: 900;
+            margin-bottom: 40px;
+            letter-spacing: 2px;
         }
 
         .hero-text p {
-            font-size: 16px;
+            font-size: 18px;
             line-height: 1.8;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
+            color: #333;
         }
 
         .hero-image {
@@ -97,72 +97,73 @@
         }
 
         button {
-            background-color: #ff7b7b;
+            background-color: #ff8080;
             color: white;
             border: none;
-            padding: 15px 40px;
-            font-size: 16px;
+            padding: 18px 50px;
+            font-size: 18px;
             font-weight: bold;
             cursor: pointer;
         }
 
-        button:hover {
-            opacity: 0.9;
-        }
-
-        /* Cards Section */
         .cards {
             background: linear-gradient(to right, #ffffcc, #ffcccc, #ffccff);
-            padding: 60px 20px;
+            padding: 80px 40px;
         }
 
         .cards-content {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             display: flex;
-            gap: 40px;
-            align-items: center;
+            gap: 60px;
+            align-items: stretch;
         }
 
         .images-grid {
             flex: 1;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            grid-template-rows: 1fr 1fr;
-            gap: 15px;
-            height: 500px;
+            gap: 20px;
         }
 
         .images-grid img {
             width: 100%;
-            height: 100%;
+            height: 280px;
             object-fit: cover;
         }
 
-        .images-grid .big-image {
+        .images-grid img:last-child {
             grid-column: 1 / 3;
-            grid-row: 2;
+            height: 300px;
         }
 
         .info-box {
             flex: 1;
-            background-color: #ff7b7b;
-            padding: 60px 40px;
+            background-color: #ff8080;
+            padding: 70px 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .info-box p {
-            font-size: 14px;
-            margin-bottom: 20px;
+            font-size: 16px;
+            margin-bottom: 30px;
+            font-weight: 600;
         }
 
         .info-box h2 {
-            font-size: 45px;
+            font-size: 55px;
+            font-weight: 900;
             margin-bottom: 10px;
+            line-height: 1.1;
         }
 
         .info-box h3 {
-            font-size: 40px;
-            margin-bottom: 40px;
+            font-size: 50px;
+            font-weight: 900;
+            margin-bottom: 50px;
+            line-height: 1.1;
         }
 
         .arrow-btn {
@@ -171,20 +172,21 @@
             padding: 0;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 15px;
+            font-size: 18px;
         }
-
-        /* Mobile Menu */
+/*enabling the mobile view -for responsive web design*/
         nav ul.mobile-menu {
             display: none;
             position: absolute;
             top: 100%;
             left: 0;
             right: 0;
-            background-color: #ff7b7b;
+            background-color: #ff8080;
             flex-direction: column;
             gap: 0;
             padding: 10px 0;
+            margin-top: 20px;
         }
 
         nav ul.mobile-menu.active {
@@ -197,18 +199,9 @@
             border-bottom: 1px solid rgba(0, 0, 0, 0.1);
         }
 
-        /* Responsive */
         @media (max-width: 768px) {
             nav ul:not(.mobile-menu) {
                 display: none;
-            }
-
-            nav ul.mobile-menu {
-                display: none;
-            }
-
-            nav ul.mobile-menu.active {
-                display: flex;
             }
 
             .hero-content {
@@ -216,7 +209,7 @@
             }
 
             .hero-text h1 {
-                font-size: 35px;
+                font-size: 40px;
             }
 
             .cards-content {
@@ -227,28 +220,13 @@
                 grid-template-columns: 1fr;
             }
 
-            .images-grid .big-image {
+            .images-grid img:last-child {
                 grid-column: 1;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero-text h1 {
-                font-size: 28px;
-            }
-
-            .info-box h2 {
-                font-size: 32px;
-            }
-
-            .info-box h3 {
-                font-size: 28px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
     <nav>
         <div class="nav-menu">
             <ul id="mainMenu">
@@ -275,19 +253,11 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
             <div class="hero-text">
                 <h1>LOREM IPSUM</h1>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus
-                    id est vitae dolor rhoncus tristique. Maecenas metus quam,
-                    rhoncus euismod lorem in, sollicitudin viverra eros. Donec
-                    dictum luctus quam ut tristique. Curabitur nec faucibus purus.
-                    Quisque congue sem nec justo mollis, in tincidunt erat pretium.
-                    Sed pulvinar, massa ac porta viverra.
-                </p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus id est vitae dolor rhoncus tristique. Maecenas metus quam, rhoncus euismod lorem in, sollicitudin viverra eros. Donec dictum luctus quam ut tristique. Curabitur nec faucibus purus. Quisque congue sem nec justo mollis, in tincidunt erat pretium. Sed pulvinar, massa ac porta viverra.</p>
                 <button>Click Me</button>
             </div>
             <div class="hero-image">
@@ -296,22 +266,18 @@
         </div>
     </section>
 
-    <!-- Cards Section -->
     <section class="cards">
         <div class="cards-content">
             <div class="images-grid">
-                <img src="image4.jpg" alt="Restaurant Sign">
+                <img src="image4.jpg" alt="Sign">
                 <img src="image2.jpg" alt="Food">
-                <img src="image1.jpg" alt="Outdoor" class="big-image">
+                <img src="image1.jpg" alt="Outdoor">
             </div>
             <div class="info-box">
                 <p>LOREM IPSUM</p>
                 <h2>LOREM IPSUM</h2>
                 <h3>SET ADEMIR</h3>
-                <button class="arrow-btn">
-                    Click
-                    <span>→</span>
-                </button>
+                <button class="arrow-btn">Click <span>→</span></button>
             </div>
         </div>
     </section>
