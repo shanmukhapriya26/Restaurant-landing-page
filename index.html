@@ -1,24 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Restaurant Landing Page</title>
-    <!-- Creating Frontend Assignment for Restaurant Landing page -->
-    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Landing Page</title>
+    <!-- Creating a Frontend Assignment on Restaurant Landing page -->
+
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+
         body {
             font-family: Arial, sans-serif;
         }
+
+        /* Navigation */
         nav {
             background-color: #ff7b7b;
             padding: 20px;
         }
+
         .nav-menu {
             max-width: 1200px;
             margin: 0 auto;
@@ -27,32 +31,39 @@
             align-items: center;
             position: relative;
         }
+
         nav ul {
             list-style: none;
             display: flex;
             gap: 40px;
         }
+
         nav a {
             text-decoration: none;
             color: black;
             font-size: 18px;
             font-weight: bold;
         }
+
         .menu-icon {
             position: absolute;
             right: 0;
             cursor: pointer;
         }
+
         .menu-icon div {
             width: 30px;
             height: 4px;
             background-color: black;
             margin: 5px 0;
         }
+
+        /* Hero Section */
         .hero {
             background: linear-gradient(to right, #ffffcc, #ffcccc, #ffccff);
             padding: 60px 20px;
         }
+
         .hero-content {
             max-width: 1200px;
             margin: 0 auto;
@@ -60,13 +71,16 @@
             gap: 40px;
             align-items: center;
         }
+
         .hero-text {
             flex: 1;
         }
+
         .hero-text h1 {
             font-size: 50px;
             margin-bottom: 30px;
         }
+
         .hero-text p {
             font-size: 16px;
             line-height: 1.8;
@@ -96,6 +110,7 @@
             opacity: 0.9;
         }
 
+        /* Cards Section */
         .cards {
             background: linear-gradient(to right, #ffffcc, #ffcccc, #ffccff);
             padding: 60px 20px;
@@ -158,7 +173,8 @@
             align-items: center;
             gap: 10px;
         }
-        <!--making a mobile view-for responsive web design  -->
+
+        /* Mobile Menu */
         nav ul.mobile-menu {
             display: none;
             position: absolute;
@@ -180,6 +196,8 @@
             text-align: center;
             border-bottom: 1px solid rgba(0, 0, 0, 0.1);
         }
+
+        /* Responsive */
         @media (max-width: 768px) {
             nav ul:not(.mobile-menu) {
                 display: none;
@@ -230,6 +248,7 @@
     </style>
 </head>
 <body>
+    <!-- Navigation -->
     <nav>
         <div class="nav-menu">
             <ul id="mainMenu">
@@ -255,6 +274,8 @@
             </ul>
         </div>
     </nav>
+
+    <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
             <div class="hero-text">
@@ -274,6 +295,8 @@
             </div>
         </div>
     </section>
+
+    <!-- Cards Section -->
     <section class="cards">
         <div class="cards-content">
             <div class="images-grid">
@@ -292,6 +315,7 @@
             </div>
         </div>
     </section>
+
     <script>
         function toggleMenu() {
             var menu = document.getElementById('mobileMenu');
@@ -304,4 +328,3 @@
     </script>
 </body>
 </html>
-
